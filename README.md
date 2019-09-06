@@ -62,3 +62,13 @@ echo export PATH=\"$DIR/bin:\$PATH\" >> ~/.bashrc
 echo export LD_LIBRARY_PATH=\"$DIR/lib:\$LD_LIBRARY_PATH\" >> ~/.bashrc
 
 source ~/.bashrc
+
+Install Emacs
+
+git clone https://github.com/emacs-mirror/emacs
+
+./autogen.sh
+
+./configure --prefix=$DIR --without-textinfo --without-makeinfo --with-x-toolkit=no --with-xpm=ifavailable --with-git=ifavailable --with-tiff=ifavailable --with-gnutls=ifavailable
+
+make -j
