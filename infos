@@ -5,3 +5,13 @@ https://medium.com/palantir/code-review-best-practices-19e02780015f
 Simons Berkeley workshop:
 https://simons.berkeley.edu/workshops/abstracts/14378#talk-16132
 https://simons.berkeley.edu/talks/tbd-165
+
+Install Emacs
+
+git clone https://github.com/emacs-mirror/emacs
+
+./autogen.sh
+
+./configure --prefix=$DIR --without-textinfo --without-makeinfo --with-x-toolkit=no --with-xpm=ifavailable --with-git=ifavailable --with-tiff=ifavailable --with-gnutls=ifavailable
+
+make -j
