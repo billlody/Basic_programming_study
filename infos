@@ -1,4 +1,56 @@
+python clean code:
+https://github.com/zedr/clean-code-python
+https://github.com/dwmkerr/hacker-laws
+
 Code review:
+Committing rules
+
+Following rules and guidelines are used for committing changes.
+
+    Commit message should start with first letter capital, without dot (e.g. `Add loading monitoring data from Azure`).
+    One commit should cover one meaningful change. However, this is relative, so there are some examples:
+        Correct: If I can describe the change by one sentence (e.g. `Reformat code in risk map pipeline`, or `Postprocessing for static risk calculation`).
+        Incorrect: If I need to use conjunctions like `Add loading monitoring data and reformat code in postprocessing`. In this case, two commits should be done.
+        Reason: If there is a bug in code or unexpected behavior, we can easily go through the commit messages and filter only "relevant" changes.
+
+    Commit message should not describe the code. Code itself, comments in code or commit description can be used to describe the changes more in detail and why those changes were made.
+        Reason: Saved time when browsing changes by commit messages.
+    Commit should not cover more changes when message is describing only one of them.
+        Incorrect: For example create functions to load monitoring data, but also refactor whole pipeline with message `Add loading monitoring data`.
+        Correct: Use two commits instead.
+        Reason: It is impossible then to go through the commit messages to filter "relevant" changes, for example when finding which changes broke the code (in the example above, refactoring of whole pipeline is hidden).
+    Do not commit personal settings.
+        Reason: Sometimes it is hard to distinguish between needed changes and personal settings. Another reason is that your setting is probably not required by other teammates, all of them need to change that according to their preferences.
+        Note: If you are using PyCharm for code versioning, you can simply create custom Change list - files moved to this change list are not committed by default.
+
+Pull-requests rules
+
+Following rules and guidelines are used for pull-requests.
+
+    Pull-request title should start with first letter capital, without dot (e.g. `Stations integration to monitoring`).
+    Title should be descriptive enough but not too long - to provide more detailed description, use pull-request description instead.
+    Pull-request is merged by last reviewer after all other reviewers approved the changes.
+    After pull-request is merged, creator of branch should be notified to delete the branch.
+
+Code reviews
+
+Why code reviews? Knowledge transfer between members of the team and improvement of the quality of the code.
+
+Best practices and recommendations
+
+    If something is not clear, there is always option to ask author of the code through the comment.
+    Author of the code should be reminded, if the code should be reformatted according to our conventions (or there are for example docstrings missing).
+    Feel free to propose any improvements. Examples:
+    Repeating code: `This code is repeating, consider using separate function.`, Do not Repeat Yourself (DRY) principle).
+    I know better/shorter/more simple way how to do the same thing: `This for loop can be changed to simple list comprehension as follows: variable = x for x...`.
+    Too big functions: `This function is big and hard to read, consider split the code into functions.`.
+    Code that is hard to understand: `Why is this computation done here? Consider using comment to describe that in more detail.`.
+    Be kind, always. Probably, behind every change is hidden hard work, appreciate that.
+    All comments should be describing the code, not the author: `This part of code seems inefficient` instead of `You wrote inefficient code here`.
+    Use recommendations instead commands: `Consider using...`, or `Would not it be better if...?`.
+    Author of the code should realize that the comments are for the purpose of improving the quality of the code, not criticism of the author.
+    
+source:
 https://phauer.com/2018/code-review-guidelines/#tl-dr
 https://medium.com/palantir/code-review-best-practices-19e02780015f
 
