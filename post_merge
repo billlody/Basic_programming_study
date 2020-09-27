@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+# Create notebooks, link to py
+#
+
+OIFS="$IFS"
+IFS=$'\n'
+
+echo "Running post-merge hook to create notebooks."
+for pyfile in $(git diff --name-only HEAD@{1} HEAD -- '*.py')
+do
+        echo "Create notebooks from $pyfile"
+        jupytext --from py --to ipynb "$pyfile" ; jupytext --set-formats ipynb,py:percent --sync "$pyfile"
+done
