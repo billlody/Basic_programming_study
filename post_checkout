@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# Create notebooks, link to py
+#
+
+OIFS="$IFS"
+IFS=$'\n'
+
+prevHEAD=$1
+newHEAD=$2
+
+echo "Running post-checkout hook to create notebooks."
+for pyfile in $(git diff --name-only $prevHEAD $newHEAD -- '*.py')
+do
+        echo "Create notebooks from $pyfile"
+        jupytext --from py --to ipynb "$pyfile"
+        jupytext --set-formats ipynb,py:percent --sync "$pyfile"
+done
