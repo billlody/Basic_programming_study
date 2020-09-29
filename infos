@@ -1,3 +1,9 @@
+Change jupyterlab settings:
+{"codeCellConfig":{
+    "lineNumbers": true,
+    "wordWrapColumn": 120
+}}
+
 python clean code:
 https://github.com/zedr/clean-code-python
 https://github.com/dwmkerr/hacker-laws
