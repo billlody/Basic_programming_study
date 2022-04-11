@@ -110,3 +110,12 @@ export PYTHONPATH=$PYTHONPATH:/home/billlody/iSage/iSageUtils/
 export XMODIFIERS="@im=fcitx"
 export GPAW_SETUP_PATH=${billlody}/gpaw-setups-0.9.9672
 export PATH="$PATH:~/GProgram/GameScript"
+
+BLUE="$(tput setaf 6)"
+DARK="$(tput setaf 4)"
+GREEN="$(tput setaf 2)"
+YELLOW="$(tput setaf 3)"
+RESET="$(tput sgr0)"
+BOLD="$(tput bold)"
+source ~/.git-prompt.sh
+export PS1="${BOLD}${GREEN}%n ${BLUE}%1~ ${YELLOW}$(__git_ps1 " (%s)")${RESET} > "
