@@ -1,0 +1,241 @@
+% !TEX TS-program = pdflatexmk
+%!Mode:: "TeX:UTF-8"
+% yzheng's Resume
+% Created: 09 Mar 2011
+% Last Modified: 11 July 2011
+
+\documentclass[a4paper,8pt,oneside]{scrartcl}
+\usepackage{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{CJK}
+\usepackage{url}
+\usepackage{hyperref}
+%\usepackage[dvips,CJKbookmarks]{hyperref}
+
+\pagestyle{empty}
+\geometry{letterpaper,tmargin=0.4in,bmargin=0in,lmargin=0.8in,rmargin=0.8in,headheight=0in,headsep=0in,footskip=.3in}
+
+\setlength{\parindent}{0in} \setlength{\parskip}{-1pt}
+\setlength{\itemsep}{-1pt} \setlength{\topsep}{-1pt}
+\setlength{\partopsep}{-1pt} \setlength{\tabcolsep}{0in}
+%\renewcommand{\baselinestretch}{0.5}
+%\setlength{\parskip}{0em}
+
+
+% Name and contact information
+\newcommand{\name}{ZHENG Yan}
+% \newcommand{\addr}{Rm 2, Floor 8, Block B, Greenwood Garden, 7-11, Sha Kok street, Shatin, NT, Hong Kong} 
+\newcommand{\addr}{Chaoyang District, Beijing, China}
+\newcommand{\addrown}{Chaoyang District, Beijing, China}
+\newcommand{\hkphone}{HK Tel:(+852)51652919}
+\newcommand{\bjphone}{BJ Tel:(+86)13671288621}
+\newcommand{\email}{Email:billzhengyan@hotmail.com, billzhengyan@gmail.com}
+%\newcommand{\position}{Equity Research Analyst}
+%\newcommand{\sector}{UBS}
+\newcommand{\Region}{Hong Kong, China}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% New commands and environments
+
+% This defines how the name looks
+\newcommand{\bigname}[1]{
+    \begin{center}\fontfamily{phv}\selectfont\LARGE\bfseries#1\end{center}
+}
+
+% A ressection is a main section (<H1>Section</H1>)
+\newenvironment{ressection}[1]{
+    \vspace{2pt}
+    {\selectfont#1}
+    \begin{itemize}
+    \vspace{0pt}
+}{
+    \end{itemize}
+}
+
+% A resitem is a simple list element in a ressection (first level)
+\newcommand{\resitem}[1]{
+    \vspace{-4pt}
+    \item #1
+}
+
+\newcommand{\resitems}[1]{
+    \vspace{-4pt}
+    \item #1
+%   \hfill
+%   \itshape {#2}
+}
+
+% A ressubitem is a simple list element in anything but a ressection (second level)
+\newcommand{\ressubitem}[1]{
+    \vspace{0pt}
+    \item #1
+}
+
+% A resbigitem is a complex list element for stuff like jobs and education:
+%  Arg 1: Name of company or university
+%  Arg 2: Location
+%  Arg 3: Title and/or date range
+\newcommand{\resbigitem}[3]{
+    \vspace{-5pt}
+    \item
+    \textbf{#1}\\
+    #2
+    \textit{#3}
+}
+
+% This is a list that comes with a resbigitem
+\newenvironment{ressubsec}[3]{
+    \resbigitem{#1}{#2}{#3}
+    \vspace{-2pt}
+    \begin{itemize}
+}{
+    \end{itemize}
+}
+
+% This is a simple sublist
+\newenvironment{reslist}[1]{
+    \resitem{\textbf{#1}}
+    \vspace{-5pt}
+    \begin{itemize}
+}{
+    \end{itemize}
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Now for the actual document:
+
+\begin{document}
+
+% \begin{CJK*}{UTF8}{gbsn}
+\fontfamily{ppl} \selectfont
+
+% Name with horizontal rule
+\bigname{\name}
+
+\vspace{-6pt} \rule{\textwidth}{1pt}
+
+\vspace{-1pt} {\small\itshape \addrown \hfill \bjphone\\
+       \email %\hfill \bjphone
+%\Region
+%\hfill Expected Salary: 15,000 HKD/mon
+%\flushright Studentship: 13,000 HKD/mon
+\\[5pt]}
+Possess plenty of machine learning, data mining experiences on various business cases within quant trading, online-bank, insurance; Willing to explore cutting-edge tech and leverage it on a boarder scale
+\\[-5mm]
+
+\rule{\textwidth}{1pt}
+
+\vspace{6pt}
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{ressection}{Work Experiences, Projects}
+  \begin{ressubsec}{Swiss Reinsurance \hfill Beijing}{Senior Data Scientist, Vice President}{\hfill August, 2019 - Present}
+	  \ressubitem{Predictive Underwriting Model(GBDT, FM, Attention-based Deep Learning), data mining(association rule with Clopper-Pearson interval), model interpretability(Sharley) with traditional Experience Study}
+	  \ressubitem{Deep dive on survival analysis model with DeepHit, DeepSurv, CoxPH, RSF, etc.}
+	  \ressubitem{\textbf{Working paper}: \emph{Surrogate big data modelling on discrete time interval survival analysis}}
+	  \ressubitem{Early Warning System: selective method of text summarization with TextRank, LDA, SentenceBERT, etc}
+	  \ressubitem{Other analytic developing projects}
+  \end{ressubsec}
+  \begin{ressubsec}{Ant Financial Group \hfill Beijing}{Algorithm Engineer II, AI Department}{\hfill April, 2017 - August, 2019}
+	  \ressubitem{Build high-speed back-test system with tens of thousands of C++ codes}
+	  \ressubitem{Graph Model implementation on finance knowledge graph(MPNN), and build factors for equities investment}
+	  \ressubitem{Machine Learning(LASSO, xgboost, lightgbm, catboost), Deep Learning(vanilla DNN), Ranking model(RankNet only) for multi-factor(features) model in quant trading area}
+	  \ressubitem{Reinforcement Learning(TRPO, PPO) research on Auto Feature(factor) searching for linear model on A-share Market}
+	  \ressubitem{Develop Small Loan business prediction task by using Adanet(boosting method), Transfer Learning(re-weighting method), Deep Learning(vanilla CNN) model}
+  \end{ressubsec}
+  \begin{ressubsec}{Ubiquant Investment Co. \hfill Beijing}{Quantitative Researcher}{\hfill December, 2015 - April, 2017}
+	  \ressubitem{Research \& develop on PV, Fundamental, Cashflow alpha strategy as well as time series modelling}
+	  \ressubitem{Enhance Genetic Algorithm system with specific design driven by different structured data in C++}
+	  \ressubitem{Research alpha strategy on Level2 data(tick level, stochastic model based VPIN indicator, cash flow indicator) in China Market}
+      \ressubitem{Research on portfolio optimization theory such as Eigen risk parity, Copula Function, factor clustering etc.}
+  \end{ressubsec}
+  %%\begin{ressubsec}{Huashang Mutual Fund \hfill Beijing}{Quantitative Researher Intern}{\hfill September, 2015 - November, 2015}
+    %%\ressubitem{Research on Style Investing on China market}
+  %%\end{ressubsec}
+    %% \begin{ressubsec}{Projects}{Practice(Github user: billlody)}{\hfill February, 2013 - March, 2015}
+    %%   \ressubitem{Write C++ \& OCaml code to implement lazy valuation, different algorithms \& data structure, Black-Scholers model in both OOP design and functional programming way}
+    %%   \ressubitem{Solved 97 of Lisp 99 problems by Ocaml with vastly use of list data structure, 1900+ codes accumulated}
+    %% \end{ressubsec}
+    \begin{ressubsec}{Risk Management Department, China Asset Management Co. \hfill Beijing}{Intern}{\hfill October,
+        2012--November, 2012} 
+        \ressubitem{Calculate overall VIX(spot implied volatility) \& implement EWMA model}
+    \end{ressubsec}
+    \begin{ressubsec}{Everbright Fortune Investment Co. \hfill Shanghai}{Software Developer Intern}{\hfill July,
+        2012--end of Sep, 2012}
+      \ressubitem{Help build future trading system on Linux by python both front-end and back-end}
+    \end{ressubsec}
+    \begin{ressubsec}{Physics Department, HKUST \hfill Hong Kong}{Research Project: transport and thermodynamics properties of various superconductors}
+      {\hfill November, 2009--2015}
+      \ressubitem{Develop measurement program (C Language-based Labwindows with GPIB devices)}
+      \ressubitem{Original work: measure Hall effect, Seebeck effect, Nernst effect, heat capacity \& electrical resistivity of pnictides, SCBO sample under high pressure with AC-modulated method}
+      \ressubitem{Interpret measurement results with theories qualitatively, displayed results properly \& wrote thesis by \LaTeX{}}
+    \end{ressubsec}
+\end{ressection}
+
+%\begin{ressection}{Awards \& Finance related knowledges}
+%    \resitems{Qualified Mutual Fund Employee Certificate}
+%    \resitems{{People's Scholarship, Department of Physics, Fudan University,}\hfill
+%    \emph{2005--2009}}
+%    \resitems{{High School Physics Competition, 1st Award(Rank 3 of Beijing), 2nd Award,}\hfill 
+%    \emph{2003--2004}~~}
+%\end{ressection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{ressection}{Education}
+    \begin{ressubsec}{The Hong Kong University of Science \& Technology \hfill Hong Kong}{Doctor of Philosophy}{Majoring in Physics}
+        \ressubitem{\itshape Period: September, 2009 -- June, 2015}
+    \end{ressubsec}
+    \begin{ressubsec}{Fudan University \hfill Shanghai}{Bachelor of Science}{Majoring in Physics}
+        \ressubitem{\itshape Period: September, 2005 -- June, 2009}
+    \end{ressubsec}
+\end{ressection}
+
+\begin{ressection}{Publication:}
+  \resitems{\textbf{Y. Zheng}, Y. Wang, B. Lv, C. W. Chu, and R. Lortz, \emph{New Journal of Physics 14}, 053034 (2012)}
+  \resitems{\textbf{Y. Zheng}, Y. Wang, F. Hardy, T. Wolf, C. Meingast, and R. Lortz, \emph{Phys. Rev. B 89}, 054514 (2014)}
+  \resitems{\textbf{Zheng. Yan}, Liu. Y, Toyota. Naoki, Lortz. Rolf, \emph{Journal of Physics: Condensed Matter 27}, 075701 (2015)}
+  \resitems{\textbf{Y. Zheng}, P. M. Tam, J. Q. Hou, Anna E. Böhmer, Thomas Wolf, M. Christoph, R. Lortz, \emph{Phys. Rev. B 93}, 104516 (2015)}
+\end{ressection}
+
+\begin{ressection}{Research topics:}
+	\resitems{Correlation between confidence and correlation on categorical features}
+	\resitems{Sharpley value stability and efficiency with different sampling algorithm}
+\end{ressection}
+
+\begin{ressection}{Awards}
+	\resitems{People's Scholarship, Department of Physics, Fudan University}\hfill
+	\emph{2005-2009}
+	\resitems{High School Physics Competition, 1st Award(Rank 3 of Beijing) once, 2nd Award once}\hfill
+	\emph{2005-2009}
+\end{ressection}
+
+% \begin{ressection}{Awards \& Finance related knowledges}
+%    \resitems{Qualified Mutual Fund Employee Certificate}
+%    \resitems{{People's Scholarship, Department of Physics, Fudan University,}\hfill
+%    \emph{2005--2009}}
+%    \resitems{{High School Physics Competition, 1st Award(Rank 3 of Beijing), 2nd Award,}\hfill 
+%    \emph{2003--2004}~~}
+% \end{ressection}
+%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{ressection}{Extra Activities}
+%    \resitem{{\textbf{Volunteer work-'Sunny Home':} Help mentally challenged children in terms of teaching
+%        \& organizing activities}} \hfill
+%    \emph{2006}
+%    \resitem{\textbf{Hobbies:} piano, philosophy, swimming, basketball, etc.}
+%\end{ressection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{ressection}{Skills}
+    \resitem{\textbf{Computer Skills:} Proficient in python and C/C++ with tensorflow, pytorch in Linux; Ali MaxCompute cloud computing, SQL; previous hands on experiences with CUDA programming, Matlab, \LaTeX{}}
+    \resitem{\textbf{Language Skills:} English: Fluent; Mandarin: Native}
+    
+\end{ressection}
+
+\vspace{2pt}
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\end{CJK*}
+\end{document}
