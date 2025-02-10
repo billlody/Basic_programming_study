@@ -1,0 +1,206 @@
+%!Mode:: "TeX:UTF-8"
+% yzheng's Resume
+% Created: 09 Mar 2011
+% Last Modified: 11 July 2011
+
+\documentclass[a4paper,9pt,oneside]{scrartcl}
+\usepackage{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{CJKutf8}
+
+\pagestyle{empty}
+\geometry{letterpaper,tmargin=0.4in,bmargin=0in,lmargin=0.8in,rmargin=0.8in,headheight=0in,headsep=0in,footskip=.3in}
+
+\setlength{\parindent}{0in} \setlength{\parskip}{-1pt}
+\setlength{\itemsep}{-1pt} \setlength{\topsep}{-1pt}
+\setlength{\partopsep}{-1pt} \setlength{\tabcolsep}{0in}
+%\renewcommand{\baselinestretch}{0.5}
+%\setlength{\parskip}{0em}
+
+
+% Name and contact information
+\newcommand{\name}{Zheng Yan}
+\newcommand{\addr}{Huayanbeili Road, Chaoyang District, Beijing, China}
+\newcommand{\hkphone}{HK Tel:(+852)51652919}
+\newcommand{\bjphone}{BJ Tel:(+86)13671288621}
+\newcommand{\email}{Email:billzhengyan@hotmail.com}
+\newcommand{\Region}{Hong Kong, China}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% New commands and environments
+
+% This defines how the name looks
+\newcommand{\bigname}[1]{
+    \begin{center}\fontfamily{phv}\selectfont\LARGE\bfseries#1\end{center}
+}
+
+% A ressection is a main section (<H1>Section</H1>)
+\newenvironment{ressection}[1]{
+    \vspace{2pt}
+    {\large#1}
+    \begin{itemize}
+    \vspace{2pt}
+}{
+    \end{itemize}
+}
+
+% A resitem is a simple list element in a ressection (first level)
+\newcommand{\resitem}[1]{
+    \vspace{-4pt}
+    \item #1
+}
+
+\newcommand{\resitems}[1]{
+    \vspace{-4pt}
+    \item #1
+%    \itshape #2
+}
+
+% A ressubitem is a simple list element in anything but a ressection (second level)
+\newcommand{\ressubitem}[1]{
+    \vspace{0pt}
+    \item #1
+}
+
+% A resbigitem is a complex list element for stuff like jobs and education:
+%  Arg 1: Name of company or university
+%  Arg 2: Location
+%  Arg 3: Title and/or date range
+\newcommand{\resbigitem}[3]{
+    \vspace{-5pt}
+    \item
+    \textbf{#1}\\
+    #2
+    \textit{#3}
+}
+
+% This is a list that comes with a resbigitem
+\newenvironment{ressubsec}[3]{
+\resbigitem{#1}{#2}{#3}
+    \vspace{-2pt}
+    \begin{itemize}
+}{
+    \end{itemize}
+}
+
+% This is a simple sublist
+\newenvironment{reslist}[1]{
+    \resitem{\textbf{#1}}
+    \vspace{-5pt}
+    \begin{itemize}
+}{
+    \end{itemize}
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Now for the actual document:
+
+\begin{document}
+
+\fontfamily{ppl} \selectfont
+
+\begin{CJK*}{UTF8}{gbsn}
+% Name with horizontal rule
+\bigname{\Huge 郑岩}
+
+\vspace{-6pt} \rule{\textwidth}{1pt}
+
+\vspace{-1pt} {\small\itshape 北京市朝阳区 \hfill 电话：+86 13671288621\\
+       Email：billzhengyan@hotmail.com  %\hfill 北京电话：86 13671288621
+%\Region
+%\hfill Expected Salary: 15,000 HKD/mon
+%\flushright Studentship: 13,000 HKD/mon
+\\[5pt]}
+具备较好的数理建模能力和机器学习在实际业务中的经验，同时具有较强的c++/python编程工程能力，希望应用最新技术于实际问题
+\\[-6mm]
+
+\rule{\textwidth}{1pt}
+
+\vspace{6pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{ressection}{经历：}
+  \begin{ressubsec}{瑞士再保险 \hfill 北京}{高级数据科学家}{\hfill 2019年8月— — 现今}
+	  \ressubitem{生存分析建模（surrogate model）、数据挖掘（association rule）、可解释机器学习（Shapley）的归因分析}
+	  \ressubitem{重疾险预测性核保（Deep learning、xgboost）、NLP疾病信息检测系统（文本摘要算法）}
+	  \ressubitem{其余数据分析相关开发工作}
+  \end{ressubsec}
+  \begin{ressubsec}{蚂蚁金服 \hfill 北京}{高级算法工程师}{\hfill 2017年5月 －－ 2019年8月}
+	  \ressubitem{C++代码搭建完整快速回测平台}
+	  \ressubitem{机器学习(LASSO, GBDT)、深度学习构建多因子股票资产组合}
+	  \ressubitem{微贷花呗流动性业务预测：采用CNN, Adanet, GBDT, 迁移学习等模型，预测花呗流动性}
+	  \ressubitem{针对股票特征工程问题：完善遗传算法系统；采用强化学习研究遗传算法中的公式解析(TRPO, PPO)}
+	  \ressubitem{股票另类数据挖掘：采用LTR(RankNet)模型在股票主营业务层面进行因子建模, 对股票知识图谱进行图模型(MPNN)探索}
+  \end{ressubsec}
+  \begin{ressubsec}{九坤投资 \hfill 北京}{量化策略研究员}{\hfill 2015年12月 －－ 2017年4月}
+    \ressubitem{量化研究：研究Alpha策略、参与开发多维数据（基本面、LVL2、分钟线、现金流、价量等）GA系统}
+    \ressubitem{分析Level2数据构建资金流向，采用VPIN等指标产生基于此的alpha策略}
+    \ressubitem{研究实践若干金融理论因子，诸如Copula函数、因子聚类}
+	\ressubitem{研究股票日线择时策略}
+  \end{ressubsec}
+  \begin{ressubsec}{香港科技大学物理系 \hfill 香港}{研究项目：
+    铁基超导体、二维自旋体系比热测量与研究}{\hfill  2009年12月 -- 2014年9月}
+    \ressubitem{研究工作：高压下采用 AC-Modelated 方法测量 122 体系铁基超导体、SCBO
+        材料低温下的比热、电学特性；编写测量程序控制仪器参数（C语言为主的Labwindows软件与GPIB接口联通）}
+    \ressubitem{后期工作：整理分析数据；用\LaTeX完成论文;用英语通过答辩}
+  \end{ressubsec}
+    %% \begin{ressubsec}{香港科技大学物理系}{助教}{\hfill 2009年09月--2012年06月}
+    %%     \ressubitem{实验助教：用英语指导学生实验,评定学生水平,分别帮助不同的学生}
+    %%     \ressubitem{授课助教：用英语授课,答疑,判学生作业及考试卷}
+    %% \end{ressubsec}
+\end{ressection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{ressection}{金融知识：}
+%    \resitems{ 基金从业资格}
+    %\resitems{{复旦大学物理系 人民奖学金} \hfill \emph{2005--2008}}
+    %\resitems{{中学生物理竞赛北京赛区一等奖、二等奖} \hfill \emph{2003--2004}~~}
+%\end{ressection}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{ressection}{教育背景：}
+    \begin{ressubsec}{香港科技大学}{硕士, 博士} {专业：物理} 
+        \ressubitem{\itshape 时间：2009年9月-- 2015年6月}
+    \end{ressubsec}
+    \begin{ressubsec}{复旦大学}{本科}{专业：物理}
+        \ressubitem{\itshape 时间：2005年9月 -- 2009年6月}
+    \end{ressubsec}
+\end{ressection}
+
+
+\begin{ressection}{发表文章:}
+	\resitems{\textbf{Y. Zheng}, Y. Wang, B. Lv, C. W. Chu, and R. Lortz, \emph{New Journal of Physics} \textbf{14}, 053034 (2012)}
+	\resitems{\textbf{Y. Zheng}, Y. Wang, F. Hardy, T. Wolf, C. Meingast, and R. Lortz, \emph{Phys. Rev. B} \textbf{89}, 054514 (2014)}
+	\resitems{\textbf{Zheng. Yan}, Liu. Y, Toyota. Naoki, Lortz. Rolf, \emph{Journal of Physics: Condensed Matter}, \textbf{27} 075701 (2015)}
+	\resitems{\textbf{Zheng. Yan}, Pok Man Tam, Jianqiang Hou, Anna E. BÃ˝uhmer, Thomas Wolf, Christoph Meingast, Lortz. Rolf, \emph{Phys. Rev. B} \textbf{93}, 104516
+	(2015)}
+\end{ressection}
+
+%\begin{ressection}{金融知识：}
+%    \resitems{ 基金从业资格}
+    %\resitems{{复旦大学物理系 人民奖学金} \hfill \emph{2005--2008}}
+    %\resitems{{中学生物理竞赛北京赛区一等奖、二等奖} \hfill \emph{2003--2004}~~}
+%\end{ressection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{ressection}{其他：}
+%    \resitems{\textbf{爱好：} 钢琴, 游泳}
+%\end{ressection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{ressection}{技能：}
+    \resitem{\textbf{计算机技能:}  熟悉Python, C/C++, tensorflow(Linux or Visual Studio), SQL; 之前有些经验在Erlang, Excel+VBA, Matlab, Mathematica \& Labview, 具有bash编程经验}
+	\resitem{\textbf{机器学习:} 熟悉机器学习、深度学习}
+    \resitem{\textbf{语言:} 英语：流利}
+
+\end{ressection}
+
+\vspace{2pt}
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{CJK*}
+\end{document}
